@@ -1,0 +1,27 @@
+task run << {}
+
+def foo = 'One million dollars'
+
+def myClosure = {
+
+	println 'Hello from closure'
+
+	println "The value of foo is '$foo'"
+}
+
+def bar = myClosure
+
+def baz = bar
+
+bar()
+
+def dobleIt = {x -> x + x}
+
+def a = 7
+
+def applyTwice = {fun, arg -> fun(fun(arg))}
+
+
+println dobleIt(a)
+
+println applyTwice(dobleIt, a)

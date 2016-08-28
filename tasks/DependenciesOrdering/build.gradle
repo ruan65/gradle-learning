@@ -1,0 +1,55 @@
+task putOnSocks {
+	doLast {
+		println "Putting on socks..."
+	}
+}
+
+task putOnShoes {
+	dependsOn "putOnSocks"
+	doLast {
+		println "Putting on shoes!!!!"
+	}
+}
+
+task eatBreakfast {
+
+	finalizedBy "brushYourTeeth"
+	doLast {
+		println "Eating eatBreakfast. Finished..."
+	}
+}
+
+task brushYourTeeth {
+
+	doLast {
+		println "Brushshsh.....shsh..sh.."
+	}
+}
+
+task takeShower {
+	doLast {
+		println "Taking shower.... . Finished. Toweling..."
+	}
+}
+
+task putOnFragrance {
+	shouldRunAfter "takeShower"
+	doLast {
+		println "Psh... Psh... Smells nice..."
+	}
+}
+
+task getReady {
+	dependsOn = ["putOnFragrance", "takeShower", "eatBreakfast", "putOnShoes"]
+}
+
+putOnShoes.mustRunAfter("takeShower")
+
+eatBreakfast.shouldRunAfter takeShower
+
+task getEquiped {
+	dependsOn tasks.matching{task -> task.name.startsWith("putOn")}
+	doLast {
+		println "All geared up..."
+	}
+}

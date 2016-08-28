@@ -1,0 +1,16 @@
+task fire << {}
+
+def names = ["john", "ann", "loiza", "haka"]
+
+names*.toUpperCase()
+
+println names
+
+
+def printItem = {item -> println "item $item"}
+
+names.each(printItem)
+
+names.each {println "compact print item $it"}
+
+

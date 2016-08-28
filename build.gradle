@@ -1,0 +1,44 @@
+task classes << {}
+
+class Greater {
+
+	String greeting = "Hello from greeter"
+
+	def greet(){
+		println "Greeting: $greeting"
+	}
+}
+
+
+def greeter = new Greater()
+
+println "Type of greeter is: ${greeter.class}"
+greeter.greet()
+
+greeter.setGreeting("Bye")
+
+greeter.greet()
+
+def gr = greeter.getGreeting()
+
+println "Type of gr: ${gr.class} and value: $gr"
+
+greeter.setGreeting("New setted value")
+
+println greeter.greeting
+
+greeter.greeting = "Wtf??"
+
+println greeter.greeting
+
+def greetingClosure = {
+
+	println "Setting a greeting from the closure"
+
+	greet()
+}
+
+greetingClosure.delegate = greeter
+
+greeter.greeting = "Oooooopsssssssssssss"
+greetingClosure()

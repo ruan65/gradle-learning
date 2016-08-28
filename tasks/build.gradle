@@ -1,0 +1,33 @@
+project.task("coolTask")
+task("coolTask2")
+task "coolTask3"
+project.task ("coolTask4") << {
+
+	println "project object value: $project and type: ${project.class}"
+}
+
+task mainTask
+
+mainTask.description = "This is description of the task. Will be shown in the list"
+
+mainTask.group = "Group of the main task"
+
+mainTask.doLast {println "Do this last"}
+mainTask.doFirst {println "Do this first"}
+mainTask.leftShift {println "Do this one even more last"}
+
+mainTask << {println "Do this exactly last"}
+
+mainTask.doLast {println "Is that possible to do laster?"}
+
+
+task confBlocTask {
+
+	description "This is configuration block task"
+	group "Tasks with configuration block"
+	
+	doLast {
+
+		println "Do last from the taks confBlockTask"
+	}
+}

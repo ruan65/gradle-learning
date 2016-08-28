@@ -1,0 +1,62 @@
+task groovy << {}
+
+println "Hello groovy!"
+
+class JavaGreeter {
+
+	public void sayHi() {
+		System.out.println("Hello from the Java class!!!")
+	}
+}
+
+
+new JavaGreeter().sayHi();
+
+def foo = 5.5
+
+println "foo has value: $foo"
+
+println "let's do some math: 5 + 6 = ${5 + 6}"
+
+
+println "now foo has type ${foo.class} and has value: $foo"
+
+foo = "now foo is a string***"
+
+println "now foo has type ${foo.class} and has value: $foo"
+
+def dobleIt(n) {
+
+	n + n
+}
+
+println dobleIt(foo)
+
+foo = 1000
+
+println "now foo = $foo and dobleIt(foo): ${dobleIt(foo)}"
+
+def oneArg(x) {
+
+	println "called oneArg() with $x arg"
+	x
+}
+
+println oneArg(777)
+
+def twoArgs(x, y) {
+	println "called twoArgs with x = $x and y = $y"
+	x + y
+}
+
+println twoArgs( 333, 555 )
+
+def noArgs() {
+	println "noArgs function called"
+	100500
+}
+
+println twoArgs (oneArg (22), 33)
+
+println "no args returns: ${noArgs()}"
+

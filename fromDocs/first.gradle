@@ -1,0 +1,9 @@
+task upper << {
+	String s = 'mY_nAme'
+	println "Original: " + s
+	println "Upper case: " + s.toUpperCase()
+}
+
+task count << {
+	5.times {print it}
+}

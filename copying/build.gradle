@@ -1,0 +1,27 @@
+task copyImages(type: Copy) {
+	from 'images'
+	into 'build'
+}
+
+task rootHome(type: Copy) {
+
+	from '/tmpRoot'
+	into '/Users/a/tmpHome'
+}
+
+task copyPngCat(type: Copy) {
+
+	from '/Users/a/tmpHome'
+	include '*.png'
+	// include '*.txt'
+	into '/Users/a/tmpCats'
+}
+
+task copyJpgCat(type: Copy) {
+
+	from '/Users/a/tmpHome'
+	include '*.jpg'
+	// include '*.txt'
+	into '/Users/a/tmpCats'
+}
+
