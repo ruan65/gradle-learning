@@ -1,0 +1,8 @@
+apply plugin: "java"
+
+task execute(type: JavaExec) {
+	
+    main = "com.ruan.java1.Person"
+    // We'll talk about this shortly
+    classpath = sourceSets.main.runtimeClasspath
+}

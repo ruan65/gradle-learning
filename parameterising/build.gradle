@@ -1,0 +1,8 @@
+ext {
+	bye='hihihi'
+}
+
+task printGreeting << {
+	println greeting
+	println bye
+}

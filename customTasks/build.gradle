@@ -1,0 +1,16 @@
+class HelloTask extends DefaultTask {
+
+	String firstName
+
+	@TaskAction
+	void doAction() {
+
+		println "Hello, $firstName from DefaultTask!!!"
+	}
+}
+
+
+task hi(type: HelloTask) {
+	
+	firstName = 'Andrew'
+}
